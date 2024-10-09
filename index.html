@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Product list with cart</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
+<main>
+    <section class="shop">
+        <h1 class="shop__name">Desserts</h1>
+        <div class="shop__wrap product-list">
+
+        </div>
+
+    </section>
+
+</main>
+<aside class="cart">
+    <h2>Your Cart <span class="summary" id="sum">(0)</span></h2>
+    <div class="cart__wrap--empty">
+        <img src="../assets/images/illustration-empty-cart.svg" alt="empty cart">
+        <p class="empty">Your added items will appear here</p>
+    </div>
+    <div class="cart__wrap--full d-none">
+        <div class="cart-list">
+
+        </div>
+        <div class="total-price">
+            <p>Order Total</p>
+            <p class="total">$48.00</p>
+        </div>
+        <div class="delivery">
+            <img src="../assets/images/icon-carbon-neutral.svg" alt="eco-delivery">
+            <p>This is <b>carbon-neutral</b> delivery</p>
+        </div>
+        <button type="button" class="confirm" id="confirm">Confirm Order</button>
+    </div>
+</aside>
+
+<script type="module" src="../assets/js/render.js"></script>
+
+</body>
+</html>

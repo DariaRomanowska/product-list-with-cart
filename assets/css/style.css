@@ -1,0 +1,331 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Red Hat Text', sans-serif;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+:root {
+    --red: hsl(14, 86%, 42%);
+    --green: hsl(159, 69%, 38%);
+    --rose-50: hsl(20, 50%, 98%);
+    --rose-100: hsl(13, 31%, 94%);
+    --rose-300: hsl(14, 25%, 72%);
+    --rose-400: hsl(7, 20%, 60%);
+    --rose-500: hsl(12, 20%, 44%);
+    --rose-900: hsl(14, 65%, 9%);
+    --font-names: 16px;
+    --fv-400: 400;
+    --fv-600: 600;
+    --fv-900: 900;
+}
+
+body {
+    background: var(--rose-50);
+    margin: 50px;
+    display: flex;
+    justify-content: start;
+}
+
+main {
+    width: 70%;
+}
+
+.shop {
+    width: 100%;
+}
+
+.shop h1 {
+    font-size: 36px;
+    color: var(--rose-900);
+    font-weight: var(--fv-900);
+    margin-bottom: 50px;
+}
+
+.shop__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.card {
+    width: 30%;
+    height: 400px;
+    row-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.card__img {
+    background: var(--rose-50);
+
+}
+
+.card__img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+.card__btn {
+    margin: -40px auto 0 auto;
+    width: 65%;
+    border-radius: 40px;
+    padding: 10px;
+    border: 1px solid var(--rose-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    cursor: pointer;
+    gap: 5px;
+    font-weight: var(--fv-600);
+    font-size: 14px;
+}
+
+.card__description {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: start;
+}
+
+.card__description--category {
+    font-size: 14px;
+    color: var(--rose-500);
+}
+
+.card__description--name {
+    font-size: var(--font-names);
+    font-weight: var(--fv-600);
+    color: var(--rose-900);
+}
+
+.card__description--price {
+    font-size: 16px;
+    color: var(--red);
+    font-weight: var(--fv-600);
+}
+
+aside {
+    width: 25%;
+    background: white;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.cart h2 {
+    color: var(--red);
+    font-size: 24px;
+    font-weight: var(--fv-900);
+}
+
+.cart__wrap--empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 30px;
+}
+
+.cart__wrap--empty img {
+    padding-top: 20px;
+    width: 40%;
+}
+
+.cart__wrap--empty p {
+    color: var(--rose-500);
+    font-size: 16px;
+    font-weight: var(--fv-600);
+}
+
+.cart__wrap--full {
+    display: flex;
+    flex-direction: column;
+    padding: 26px 16px;
+    justify-content: space-between;
+    height: 100%;
+    align-items: start;
+}
+
+.cart__product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--rose-100);
+    padding: 20px 0;
+    width: 100%;
+}
+
+.cart__product--description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+
+.cart__product--description p:first-child {
+    color: var(--rose-900);
+    font-weight: var(--fv-600);
+}
+
+.cart__product--description div:last-of-type {
+    display: flex;
+    gap: 5px;
+    align-items: end;
+}
+
+.cost span {
+    color: var(--rose-300);
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.cost span:nth-child(1) {
+    width: 15%;
+    color: var(--red);
+}
+
+.cost span:nth-child(3) {
+    font-weight: var(--fv-600);
+    color: var(--rose-500);
+    padding-left: 10px;
+}
+
+.total-price {
+    padding: 30px 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: var(--rose-900);
+    align-items: center;
+}
+
+.total-price p:last-of-type {
+    font-size: 24px;
+    font-weight: var(--fv-900);
+}
+
+.delivery {
+    background: var(--rose-50);
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.confirm {
+    background: var(--red);
+    width: 100%;
+    color: var(--rose-50);
+    border: unset;
+    cursor: pointer;
+    padding: 15px 0;
+    border-radius: 40px;
+    font-size: calc(var(--font-names) * 1.2);
+}
+
+.remove{
+    border-radius: 50%;
+    border: 1px solid var(--rose-500);
+    padding: 1px 3px;
+}
+
+.card-active{
+    border: 3px solid var(--red);
+    border-radius: 13px;
+}
+
+.btn__card--bg{
+    color: var(--rose-50);
+    background: var(--red);
+    justify-content: space-evenly;
+}
+
+.card__btn--name{
+    order: 2;
+}
+
+.minus{
+    background: url("../images/icon-decrement-quantity.svg");
+    order: 1;
+}
+
+.plus{
+    background: url("../images/icon-increment-quantity.svg");
+    order: 3;
+}
+
+.order-btn{
+     color: var(--rose-50);
+     border-radius: 50%;
+     border: 2px solid var(--rose-50);
+     padding: 2px;
+     width: 10px;
+     height: 10px;
+     background-repeat: no-repeat;
+     background-position: center;
+ }
+
+.product-list{
+    width: 100%;
+}
+
+.cart-item,
+.cart-list{
+    width: 100%;
+}
+
+.d-none{
+    display: none;
+}
