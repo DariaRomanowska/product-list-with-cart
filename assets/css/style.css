@@ -61,7 +61,6 @@ body {
 
 .main-content {
     background: var(--rose-50);
-
     display: flex;
     justify-content: start;
 }
@@ -93,7 +92,6 @@ main {
 
 .card {
     width: 30%;
-    height: 400px;
     row-gap: 20px;
     display: flex;
     flex-direction: column;
@@ -153,7 +151,7 @@ main {
 }
 
 aside {
-    width: 25%;
+    width: 30%;
     background: white;
     height: fit-content;
     border-radius: 20px;
@@ -346,9 +344,9 @@ aside {
     width: 40%;
     height: fit-content;
     border-radius: 10px;
-    top: 50%;
+    top: 20%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -20%);
     background: white;
     padding: 30px;
     display: flex;
@@ -408,4 +406,67 @@ aside {
 
 .quantity{
     font-weight: var(--fv-600);
+}
+
+@media only screen and (max-width: 1250px){
+    .card {
+        width: 40%;
+        row-gap: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .popup {
+
+        width: 60%;
+
+    }
+}
+
+@media only screen and (max-width: 920px){
+    .main-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .card {
+        width: 35%;
+    }
+
+    main {
+        width: 80%;
+        margin: 0 auto;
+        padding: 25px;
+    }
+
+    aside {
+        width: 90%;
+
+    }
+}
+
+@media only screen and (max-width: 740px){
+    .card{
+        width: 45%;
+    }
+
+
+    .popup {
+        width: 85%;
+        top: 10%;
+        transform: translate(-50%, -10%);
+    }
+}
+
+@media only screen and (max-width: 575px){
+    .card{
+        width: 100%;
+    }
+
+    .popup {
+        width: 85%;
+        top: 1%;
+        transform: translate(-50%, -5%);
+    }
+
 }

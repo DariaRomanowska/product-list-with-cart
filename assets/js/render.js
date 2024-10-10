@@ -25,9 +25,12 @@ function addToCart(product) {
 
 function updateCartDisplay() {
     const cartList = document.querySelector('.cart-list'),
-          cartQuantity = document.getElementById('sum');
+          cartQuantity = document.getElementById('sum'),
+          confirmList = document.querySelector('.order__confirmed--products');
+
     cartList.innerHTML = '';
-    const confirmList = document.querySelector('.order__confirmed--products');
+    confirmList.innerHTML = '';
+
     cart.forEach(item => {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
@@ -41,6 +44,7 @@ function updateCartDisplay() {
                 <div class="remove"><img src="assets/images/icon-remove-item.svg" alt="remove product" data-name="${item.name}"></div>
             </div>
         `;
+
         const orderList = document.createElement('div');
         orderList.classList.add('confirm__product--list');
         orderList.innerHTML = '';
@@ -53,21 +57,22 @@ function updateCartDisplay() {
             </div>
             <span class="product-cost">$${(item.price * item.quantity).toFixed(2)}</span>
         `
+
         cartList.appendChild(cartItem);
         confirmList.appendChild(orderList)
     });
 
     const totalCost = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
-    cartQuantity.textContent = `${totalQuantity}`
+    cartQuantity.textContent = `${totalQuantity}`;
+
     document.querySelector('.total').textContent = `$${totalCost.toFixed(2)}`;
     document.querySelector('.popup__total').textContent = `$${totalCost.toFixed(2)}`;
+
     document.querySelectorAll('.remove').forEach(button => {
         button.addEventListener('click', (e) => {
             const productName = e.target.getAttribute('data-name');
             removeFromCart(productName);
-
-
             if (cart.length === 0) {
                 document.querySelector('.cart__wrap--empty').classList.remove('d-none')
                 document.querySelector('.cart__wrap--full').classList.add('d-none')
@@ -75,6 +80,7 @@ function updateCartDisplay() {
             }
         });
     });
+
     document.querySelector('.cart__wrap--empty').classList.add('d-none')
     document.querySelector('.cart__wrap--full').classList.remove('d-none')
 }
@@ -98,7 +104,7 @@ function renderProductCards(products) {
             <div class="card">
                 <picture class="card__img">
                     <source media="(min-width: 740px)" srcset="${product.image.desktop}">
-                    <source media="(min-width: 375px)" srcset="${product.image.tablet}">
+                    <source media="(min-width: 575px)" srcset="${product.image.tablet}">
                     <img src="${product.image.mobile}" alt="${product.name}">
                 </picture>
                 <button class="card__btn" data-name="${product.name}" data-item="${product.item}" data-mini="${product.mini}" data-price="${product.price.toFixed(2)}">
@@ -187,14 +193,6 @@ function renderProductCards(products) {
             updateButtonText();
             if (cart.length === 0){
                 item = 0
-                cart.innerHTML = '';
-                e.preventDefault();
-                btn.classList.add('btn__card--bg');
-                cardBtnImg.style.display = 'none';
-                cardBlock.classList.add('card-active');
-                plus.style.display = 'flex';
-                minus.style.display = 'flex';
-                updateButtonText();
             }
         });
 
@@ -225,6 +223,7 @@ function removeActiveStatus(){
         minus = document.querySelectorAll('.minus'),
         plus = document.querySelectorAll('.plus'),
         btnName = document.querySelectorAll('.card__btn--name');
+
     activeImg.forEach((el) => {
         el.classList.remove('card-active');
     });
@@ -250,12 +249,18 @@ document.querySelector('.confirm').addEventListener('click', () => {
 })
 
 document.getElementById('renew').addEventListener('click', () => {
-    document.querySelector('.popup-bg').classList.add('d-none');
-    document.querySelector('.popup').classList.add('d-none');
     const cartList = document.querySelector('.cart-list'),
-        cartQuantity = document.getElementById('sum');
+        cartQuantity = document.getElementById('sum'),
+        orderList = document.querySelector('.order__confirmed--products');
+
+    orderList.innerHTML = '';
     cartQuantity.innerHTML = `0`;
     cartList.innerHTML = '';
+    cart = [];
+
+    document.querySelector('.popup-bg').classList.add('d-none');
+    document.querySelector('.popup').classList.add('d-none');
+
     document.querySelector('.cart__wrap--empty').classList.remove('d-none')
     document.querySelector('.cart__wrap--full').classList.add('d-none');
     removeActiveStatus()
